@@ -22,6 +22,22 @@ tracks/0/keys = {
 "values": [32, 33, 34]
 }
 
+[sub_resource type="Animation" id="Animation_5wtod"]
+resource_name = "Huddle_Reverse"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [34, 33, 32]
+}
+
 [sub_resource type="Animation" id="Animation_orlk4"]
 resource_name = "Idle"
 loop_mode = 1
@@ -55,7 +71,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_n4au1"]
 resource_name = "Walk "
-length = 0.9
+length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -64,18 +80,19 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [1, 2, 3, 2]
+"values": [1, 2, 3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lut88"]
 _data = {
 &"Huddle": SubResource("Animation_lut88"),
+&"Huddle_Reverse": SubResource("Animation_5wtod"),
 &"Idle": SubResource("Animation_orlk4"),
 &"RESET": SubResource("Animation_l4oac"),
-&"Walk ": SubResource("Animation_n4au1")
+&"Walk": SubResource("Animation_n4au1")
 }
 
 [node name="Turtle" type="CharacterBody2D" unique_id=1339575447]

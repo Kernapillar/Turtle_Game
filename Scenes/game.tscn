@@ -256,5 +256,4 @@ tile_set = SubResource("TileSet_3dryh")
 position = Vector2(10.564262, -9.640755)
 
 [node name="Camera2D" type="Camera2D" parent="Turtle" unique_id=494290759]
-position_smoothing_enabled = true
 position_smoothing_speed = 10.0
