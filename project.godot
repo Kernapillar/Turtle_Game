@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Spells and Stuff"
+config/name="Turtle Game"
 run/main_scene="uid://bw1kiro8pxm06"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
