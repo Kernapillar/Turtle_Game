@@ -6,6 +6,78 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(10, 12)
 
+[sub_resource type="Animation" id="Animation_lut88"]
+resource_name = "Huddle"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [32, 33, 34]
+}
+
+[sub_resource type="Animation" id="Animation_orlk4"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [17, 18]
+}
+
+[sub_resource type="Animation" id="Animation_l4oac"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_n4au1"]
+resource_name = "Walk "
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lut88"]
+_data = {
+&"Huddle": SubResource("Animation_lut88"),
+&"Idle": SubResource("Animation_orlk4"),
+&"RESET": SubResource("Animation_l4oac"),
+&"Walk ": SubResource("Animation_n4au1")
+}
+
 [node name="Turtle" type="CharacterBody2D" unique_id=1339575447]
 script = ExtResource("1_cvnsp")
 
@@ -18,3 +90,7 @@ vframes = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1244397188]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_cvnsp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=405127878]
+libraries/ = SubResource("AnimationLibrary_lut88")
+autoplay = &"Idle"
