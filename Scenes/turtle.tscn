@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://c6jit53in2suw"]
 
-[ext_resource type="Script" uid="uid://btjk6q2tulwlq" path="res://Scenes/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://bd6loyvp0m2kh" path="res://kenney_tiny-dungeon/Tiles/tile_0097.png" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://btjk6q2tulwlq" path="res://Scenes/turtle.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://dfcip0thvy4qt" path="res://Sprites/Turtles.png" id="2_cvnsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(10, 12)
 
-[node name="Player" type="CharacterBody2D" unique_id=1339575447]
+[node name="Turtle" type="CharacterBody2D" unique_id=1339575447]
 script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=174767473]
 scale = Vector2(5, 5)
-texture = ExtResource("1_v0iea")
+texture = ExtResource("2_cvnsp")
+hframes = 16
+vframes = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1244397188]
 position = Vector2(0, 1)
