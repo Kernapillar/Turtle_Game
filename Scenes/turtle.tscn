@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dfcip0thvy4qt" path="res://Sprites/Turtles.png" id="2_cvnsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(10, 12)
+size = Vector2(102, 104)
 
 [sub_resource type="Animation" id="Animation_lut88"]
 resource_name = "Huddle"
@@ -54,6 +54,22 @@ tracks/0/keys = {
 "values": [17, 18]
 }
 
+[sub_resource type="Animation" id="Animation_b677m"]
+resource_name = "Idle_Huddle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [34]
+}
+
 [sub_resource type="Animation" id="Animation_l4oac"]
 length = 0.001
 tracks/0/type = "value"
@@ -91,6 +107,7 @@ _data = {
 &"Huddle": SubResource("Animation_lut88"),
 &"Huddle_Reverse": SubResource("Animation_5wtod"),
 &"Idle": SubResource("Animation_orlk4"),
+&"Idle_Huddle": SubResource("Animation_b677m"),
 &"RESET": SubResource("Animation_l4oac"),
 &"Walk": SubResource("Animation_n4au1")
 }
@@ -99,6 +116,8 @@ _data = {
 script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=174767473]
+position = Vector2(3.9999998, 5.999999)
+rotation = 1.5707964
 scale = Vector2(5, 5)
 texture = ExtResource("2_cvnsp")
 hframes = 16
