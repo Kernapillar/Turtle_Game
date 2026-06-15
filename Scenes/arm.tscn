@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bs687gw0h46os"]
 
+[ext_resource type="Script" uid="uid://cg7lh3y3gsanl" path="res://Scenes/arm.gd" id="1_kpgs2"]
 [ext_resource type="Texture2D" uid="uid://dfcip0thvy4qt" path="res://Sprites/Turtles.png" id="1_yxj45"]
 
 [sub_resource type="Animation" id="Animation_kpgs2"]
@@ -40,10 +41,14 @@ _data = {
 }
 
 [node name="Arm" type="Node2D" unique_id=1881835726]
+script = ExtResource("1_kpgs2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1129362507]
-position = Vector2(4, -2)
+position = Vector2(1.0000038, -9.536743e-07)
+rotation = 1.5707964
+scale = Vector2(5, 5)
 texture = ExtResource("1_yxj45")
+offset = Vector2(4, -2)
 hframes = 32
 vframes = 32
 frame = 192
