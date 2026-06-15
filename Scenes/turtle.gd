@@ -7,6 +7,7 @@ var breaking := 0.2
 var direction := Vector2(0,1)
 var hiding:= false
 var rolling:= false
+var arms:= {"right": false, "left": false, "back": false}
 const arm_scene = preload("res://Scenes/arm.tscn") 
 
 
@@ -60,13 +61,19 @@ func handle_roll():
 		await $AnimationPlayer.animation_finished
 		rolling = false
 		
-func add_arm(arm_slot, type):
+func add_arm(arm_slot, type, flipped = false, rotation = 0):
 	var arm = arm_scene.instantiate()
 	print(arm)
-	arm.setup(arm_slot, type)
+	arm.setup(arm_slot, type, flipped, rotation)
 	self.add_child(arm)
 	
 func handle_test(): 
 	if Input.is_action_just_pressed("test_button"): 
-		print("Test")
-		add_arm($Right_arm_slot.position, "Wand")
+		if !arms["right"]: 
+			add_arm($Right_arm_slot.position, "Wand")
+			arms["right"] = true
+		elif !arms["left"]: 
+			add_arm($Left_arm_slot.position, "Sword", true)
+			arms["left"] = true
+		else: 
+			print("hands full")

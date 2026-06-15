@@ -175,3 +175,6 @@ autoplay = &"Idle"
 
 [node name="Right_arm_slot" type="Marker2D" parent="." unique_id=1081002068]
 position = Vector2(0, 37)
+
+[node name="Left_arm_slot" type="Marker2D" parent="." unique_id=869398954]
+position = Vector2(0, -37)
