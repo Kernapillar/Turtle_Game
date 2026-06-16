@@ -7,6 +7,7 @@ var wobble_phase:= 0.0
 var base_rotation: float
 var attack_rotation = 0.0
 var attacking:= false
+var weapon: Node2D
 
 func setup(pos, type, flipped):
 	wobble_phase = [0, 1, 2, 3].pick_random()
@@ -14,9 +15,8 @@ func setup(pos, type, flipped):
 	arm_type = type
 	base_rotation = rotation_degrees
 	if flipped: 
-		$AnimationPlayer.play("Grow_Flipped")
-	else: 
-		$AnimationPlayer.play("Grow")
+		scale.y = -1
+	$AnimationPlayer.play("Grow")
 	
 func _process(_delta):
 	var turtle = get_parent()
@@ -35,3 +35,8 @@ func _process(_delta):
 func trigger_attack(mod = 1):
 	attack_rotation = 65.0 * mod
 	attacking = true
+
+func equip(new_wep): 
+	if weapon: 
+		return
+		
