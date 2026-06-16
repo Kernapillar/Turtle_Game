@@ -18,6 +18,70 @@ tracks/0/keys = {
 "update": 1,
 "values": [192, 193, 194]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ep4us"]
+resource_name = "Grow_2"
+length = 0.36666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [192, 193, 194]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-4.0]
+}
 
 [sub_resource type="Animation" id="Animation_8hu3u"]
 length = 0.001
@@ -33,10 +97,35 @@ tracks/0/keys = {
 "update": 1,
 "values": [192]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ep4us"]
 _data = {
 &"Grow": SubResource("Animation_kpgs2"),
+&"Grow_Flipped": SubResource("Animation_ep4us"),
 &"RESET": SubResource("Animation_8hu3u")
 }
 
@@ -49,9 +138,16 @@ rotation = 1.5707964
 scale = Vector2(5, 5)
 texture = ExtResource("1_yxj45")
 offset = Vector2(4, -2)
+flip_h = true
 hframes = 32
 vframes = 32
 frame = 192
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1677095245]
 libraries/ = SubResource("AnimationLibrary_ep4us")
+
+[node name="Hand_marker" type="Marker2D" parent="." unique_id=550880627]
+position = Vector2(30, 30)
+
+[node name="Hand_marker_flipped" type="Marker2D" parent="." unique_id=591661929]
+position = Vector2(30, -30)

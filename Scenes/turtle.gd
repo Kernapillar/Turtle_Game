@@ -61,10 +61,10 @@ func handle_roll():
 		await $AnimationPlayer.animation_finished
 		rolling = false
 		
-func add_arm(arm_slot, type, flipped = false, rotation = 0):
+func add_arm(arm_slot, type, flipped = false):
 	var arm = arm_scene.instantiate()
 	print(arm)
-	arm.setup(arm_slot, type, flipped, rotation)
+	arm.setup(arm_slot, type, flipped)
 	self.add_child(arm)
 	
 func handle_test(): 
