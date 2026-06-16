@@ -7,7 +7,7 @@ var breaking := 0.2
 var direction := Vector2(0,1)
 var hiding:= false
 var rolling:= false
-var arms:= {"right": false, "left": false, "back": false}
+var arms:= {"right": null, "left": null, "back": null}
 const arm_scene = preload("res://Scenes/arm.tscn") 
 
 
@@ -17,6 +17,7 @@ func _physics_process(_delta):
 	handle_hide()
 	handle_roll()
 	handle_test()
+	handle_attack()
 	move_and_slide()
 	
 func handle_movement_input():
@@ -63,17 +64,24 @@ func handle_roll():
 		
 func add_arm(arm_slot, type, flipped = false):
 	var arm = arm_scene.instantiate()
-	print(arm)
 	arm.setup(arm_slot, type, flipped)
 	self.add_child(arm)
+	return arm
 	
 func handle_test(): 
 	if Input.is_action_just_pressed("test_button"): 
 		if !arms["right"]: 
-			add_arm($Right_arm_slot.position, "Wand")
-			arms["right"] = true
+			var new_arm = add_arm($Right_arm_slot.position, "Wand")
+			arms["right"] = new_arm
 		elif !arms["left"]: 
-			add_arm($Left_arm_slot.position, "Sword", true)
-			arms["left"] = true
+			var new_arm = add_arm($Left_arm_slot.position, "Sword", true)
+			arms["left"] = new_arm
 		else: 
 			print("hands full")
+
+func handle_attack(): 
+	if Input.is_action_just_pressed("Left_Click"): 
+		if arms["right"]: 
+			arms["right"].trigger_attack()
+		if arms["left"]: 
+			arms["left"].trigger_attack(-1)

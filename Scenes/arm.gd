@@ -4,24 +4,34 @@ var arm_type
 var wobble_strength := 5.0
 var wobble_speed:= 8.0 
 var wobble_phase:= 0.0
-
 var base_rotation: float
+var attack_rotation = 0.0
+var attacking:= false
+
 func setup(pos, type, flipped):
-	print("Setup")
+	wobble_phase = [0, 1, 2, 3].pick_random()
 	position = pos
 	arm_type = type
+	base_rotation = rotation_degrees
 	if flipped: 
 		$AnimationPlayer.play("Grow_Flipped")
 	else: 
 		$AnimationPlayer.play("Grow")
-	#self.rotation = rotat
-	print(self.get_parent())
 	
-func _process(delta):
+func _process(_delta):
 	var turtle = get_parent()
 	var moving = turtle.velocity.length() > 10.
+	if attacking:
+		attack_rotation = lerp(attack_rotation, 0.0, 0.15)
+		if abs(attack_rotation) < 0.5:
+			attacking = false
+	var wobble_offset = 0
 	if moving:
-		var wobble = sin(Time.get_ticks_msec() / 1000.0 * wobble_speed + wobble_phase) * wobble_strength
-		rotation_degrees = base_rotation + wobble
+		wobble_offset = sin(Time.get_ticks_msec() / 1000.0 * wobble_speed + wobble_phase) * wobble_strength
 	else:
 		rotation_degrees = lerp(rotation_degrees, base_rotation, 0.2)
+	rotation_degrees = lerp(rotation_degrees, base_rotation + wobble_offset + attack_rotation, 0.2)
+		
+func trigger_attack(mod = 1):
+	attack_rotation = 65.0 * mod
+	attacking = true
