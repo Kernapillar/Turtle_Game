@@ -10,6 +10,7 @@ var rolling:= false
 var arms:= {"right": null, "left": null, "back": null}
 const arm_scene = preload("res://Scenes/arm.tscn") 
 const dagger_scene = preload(("res://Scenes/dagger.tscn"))
+const sword_scene = preload(("res://Scenes/sword.tscn"))
 
 
 func _physics_process(_delta):
@@ -80,6 +81,8 @@ func handle_test():
 		elif !arms["left"]: 
 			var new_arm = add_arm($Left_arm_slot.position, "Sword", true)
 			arms["left"] = new_arm
+			var new_weapon = sword_scene.instantiate()
+			arms["left"].equip(new_weapon)
 		else: 
 			print("hands full")
 

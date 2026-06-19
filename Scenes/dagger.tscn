@@ -1,17 +1,21 @@
 [gd_scene format=3 uid="uid://dkkcximdl64wb"]
 
 [ext_resource type="Texture2D" uid="uid://bx1kgtg3gwtgm" path="res://kenney_tiny-dungeon/Tiles/tile_0103.png" id="1_1n5yg"]
+[ext_resource type="Script" uid="uid://c2rohy4d3rlgq" path="res://Scenes/dagger.gd" id="1_aosk0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixfv2"]
 size = Vector2(24, 60)
 
 [node name="Dagger" type="Node2D" unique_id=773178961]
+script = ExtResource("1_aosk0")
+damage = 3
+attack_speed = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=498427299]
 scale = Vector2(5, 5)
 texture = ExtResource("1_1n5yg")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=430339219]
+[node name="Hitbox" type="Area2D" parent="." unique_id=430339219]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1807589512]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1807589512]
 shape = SubResource("RectangleShape2D_ixfv2")

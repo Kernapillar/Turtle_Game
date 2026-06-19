@@ -8,11 +8,13 @@ var base_rotation: float
 var attack_rotation = 0.0
 var attacking:= false
 var current_weapon: Node2D
+var flipped := false
 
-func setup(pos, type, flipped):
+func setup(pos, type, flip):
 	wobble_phase = [0, 1, 2, 3].pick_random()
 	position = pos
 	arm_type = type
+	flipped = flip
 	base_rotation = rotation_degrees
 	if flipped: 
 		$AnimationPlayer.play("Grow_Flipped")
@@ -39,7 +41,8 @@ func trigger_attack(mod = 1):
 	
 func equip(wep: Node2D): 
 	current_weapon = wep
-	current_weapon.position = $Hand_marker.position
+	var marker = $Hand_marker if !flipped else $Hand_marker_flipped
+	current_weapon.position = marker.position
 	current_weapon.rotate(2)
 	self.add_child(current_weapon)
 	

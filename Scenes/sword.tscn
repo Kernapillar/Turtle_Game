@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ba5u21iyphccb"]
+
+[ext_resource type="Script" uid="uid://da0aus3dv2l4t" path="res://Scenes/sword.gd" id="1_6wdhb"]
+[ext_resource type="Texture2D" uid="uid://bt5sis0wo6fcp" path="res://kenney_tiny-dungeon/Tiles/tile_0106.png" id="1_goa0h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wdhb"]
+size = Vector2(24, 55)
+
+[node name="Sword" type="Node2D" unique_id=520808528]
+script = ExtResource("1_6wdhb")
+damage = 5
+attack_speed = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1436981435]
+scale = Vector2(5, 5)
+texture = ExtResource("1_goa0h")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=347524862]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=51078294]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_6wdhb")
