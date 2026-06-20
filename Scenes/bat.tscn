@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bhel4tr2ukw61"]
+
+[ext_resource type="Script" uid="uid://dbyvljm11ema3" path="res://bat.gd" id="1_jckqh"]
+[ext_resource type="Texture2D" uid="uid://cystfbvqnj7bt" path="res://kenney_tiny-dungeon/Tiles/tile_0120.png" id="2_wt6c1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50dnf"]
+size = Vector2(72, 56)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mqh3e"]
+radius = 260.00192
+
+[node name="Bat" type="CharacterBody2D" unique_id=922957732]
+script = ExtResource("1_jckqh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1856254884]
+scale = Vector2(5, 5)
+texture = ExtResource("2_wt6c1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1823036341]
+shape = SubResource("RectangleShape2D_50dnf")
+
+[node name="Aggro Radius" type="Area2D" parent="." unique_id=654775859]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro Radius" unique_id=1584485830]
+shape = SubResource("CircleShape2D_mqh3e")
+
+[connection signal="body_entered" from="Aggro Radius" to="." method="_on_aggro_radius_body_entered"]
+[connection signal="body_exited" from="Aggro Radius" to="." method="_on_aggro_radius_body_exited"]
