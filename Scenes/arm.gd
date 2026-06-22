@@ -38,6 +38,7 @@ func _process(_delta):
 func trigger_attack(mod = 1):
 	attack_rotation = 65.0 * mod
 	attacking = true
+	current_weapon.attack()
 	
 func equip(wep: Node2D): 
 	current_weapon = wep

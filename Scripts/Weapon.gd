@@ -6,7 +6,7 @@ class_name Weapon
 @export var weapon_name: String
 
 func attack(): 
-	pass
+	print(self)
 	
 func equip(): 
 	pass
