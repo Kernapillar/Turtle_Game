@@ -255,7 +255,7 @@ terrain_set_0/terrain_0/name = "Ground"
 terrain_set_0/terrain_0/color = Color(0.4192892, 0.80203056, 0.99999994, 1)
 sources/0 = SubResource("TileSetAtlasSource_wrm1d")
 
-[node name="Game" type="Node2D" unique_id=1928908961]
+[node name="Game" type="Node2D" unique_id=1928908961 groups=["Game"]]
 
 [node name="Layers" type="Node2D" parent="." unique_id=1683347706]
 

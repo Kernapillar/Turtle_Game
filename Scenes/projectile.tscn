@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://53mtmotw8y5k"]
+
+[ext_resource type="Texture2D" uid="uid://dlm5pgmrobfnb" path="res://kenney_tiny-dungeon/Tiles/tile_0104.png" id="1_f8cdk"]
+[ext_resource type="Script" uid="uid://bdahbexdquswr" path="res://Scenes/projectile.gd" id="1_yr2qt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yr2qt"]
+radius = 17.0
+height = 84.0
+
+[node name="Projectile" type="Area2D" unique_id=334357506]
+script = ExtResource("1_yr2qt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1715524482]
+scale = Vector2(5, 5)
+texture = ExtResource("1_f8cdk")
+
+[node name="Timer" type="Timer" parent="." unique_id=1143290716]
+wait_time = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=521080671]
+shape = SubResource("CapsuleShape2D_yr2qt")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

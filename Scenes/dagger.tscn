@@ -10,6 +10,7 @@ size = Vector2(24, 60)
 script = ExtResource("1_aosk0")
 damage = 3
 attack_speed = 1.0
+weapon_name = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=498427299]
 scale = Vector2(5, 5)

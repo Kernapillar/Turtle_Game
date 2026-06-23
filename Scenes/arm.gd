@@ -38,7 +38,9 @@ func _process(_delta):
 func trigger_attack(mod = 1):
 	attack_rotation = 65.0 * mod
 	attacking = true
-	current_weapon.attack()
+	var marker = $Hand_marker if !flipped else $Hand_marker_flipped
+	var dir = (get_global_mouse_position() - self.global_position).normalized()
+	current_weapon.attack(marker.global_position, dir)
 	
 func equip(wep: Node2D): 
 	current_weapon = wep
