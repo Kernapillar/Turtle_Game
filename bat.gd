@@ -28,3 +28,10 @@ func _on_aggro_radius_body_entered(body):
 func _on_aggro_radius_body_exited(body):
 	if body == get_tree().get_first_node_in_group("Turtle"): 
 		target = null
+
+func _on_hitbox_area_entered(area):
+	if "damage" in area:
+		current_health -= area.damage
+	if current_health <= 0: 
+		queue_free() 
+		

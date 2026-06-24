@@ -9,7 +9,12 @@ size = Vector2(72, 56)
 [sub_resource type="CircleShape2D" id="CircleShape2D_mqh3e"]
 radius = 260.00192
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jckqh"]
+size = Vector2(74, 58)
+
 [node name="Bat" type="CharacterBody2D" unique_id=922957732]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_jckqh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1856254884]
@@ -24,5 +29,13 @@ shape = SubResource("RectangleShape2D_50dnf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro Radius" unique_id=1584485830]
 shape = SubResource("CircleShape2D_mqh3e")
 
+[node name="hitbox" type="Area2D" parent="." unique_id=1519683575]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=559552955]
+shape = SubResource("RectangleShape2D_jckqh")
+
 [connection signal="body_entered" from="Aggro Radius" to="." method="_on_aggro_radius_body_entered"]
 [connection signal="body_exited" from="Aggro Radius" to="." method="_on_aggro_radius_body_exited"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
