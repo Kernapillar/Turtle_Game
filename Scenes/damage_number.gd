@@ -12,6 +12,7 @@ func _ready() -> void:
 	
 func setup(amount: int, pos: Vector2, critical:= false): 
 	$Label.text = str(amount)
+	print("setup")
 	position = pos
 	if critical:
 		modulate = Color.RED

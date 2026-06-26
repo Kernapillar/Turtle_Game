@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bu7sk5pvn3hvy"]
 
-[ext_resource type="Script" path="res://scenes/damage_number.gd" id="1_aie4f"]
+[ext_resource type="Script" uid="uid://dcu7i2hkdswk3" path="res://scenes/damage_number.gd" id="1_aie4f"]
 
 [node name="Damage Number" type="Node2D" unique_id=960947011]
 z_index = 5
