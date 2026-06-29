@@ -18,6 +18,7 @@ func _physics_process(_delta):
 	handle_rotation()
 	handle_hide()
 	handle_roll()
+	handle_collision()
 	handle_test()
 	handle_attack()
 	move_and_slide()
@@ -92,3 +93,9 @@ func handle_attack():
 			arms["right"].trigger_attack()
 		if arms["left"]: 
 			arms["left"].trigger_attack(-1)
+
+func handle_collision(): 
+	if rolling: 
+		$CollisionShape2D.disabled = true
+	else: 
+		$CollisionShape2D.disabled = false

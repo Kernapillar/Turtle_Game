@@ -273,4 +273,13 @@ position_smoothing_speed = 10.0
 [node name="Enemies" type="Node" parent="." unique_id=1320830318]
 
 [node name="Bat" parent="Enemies" unique_id=922957732 instance=ExtResource("3_wrm1d")]
-position = Vector2(707, -498)
+position = Vector2(742, -462)
+
+[node name="Bat3" parent="Enemies" unique_id=445627973 instance=ExtResource("3_wrm1d")]
+position = Vector2(543, -470)
+
+[node name="Bat4" parent="Enemies" unique_id=518211237 instance=ExtResource("3_wrm1d")]
+position = Vector2(613, -655)
+
+[node name="Bat2" parent="Enemies" unique_id=1803305408 instance=ExtResource("3_wrm1d")]
+position = Vector2(333, -557)
